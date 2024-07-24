@@ -5,4 +5,4 @@
   sudo chmod +x ./QuickSetup.sh
   ./QuickSetup.sh
 ```
-![image](./screen.png)
+![image](./my-screen.png)
