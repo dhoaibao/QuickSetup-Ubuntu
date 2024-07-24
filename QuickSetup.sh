@@ -22,13 +22,6 @@ sudo nala install -y git zsh nodejs npm neovim ibus-unikey gnome-tweaks gnome-sh
 # Add Flathub repository
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# Install Dracula theme for GNOME Terminal
-sudo nala install dconf-cli -y
-git clone https://github.com/dracula/gnome-terminal
-pushd gnome-terminal/
-./install.sh
-popd
-
 # Install Monaspace font
 git clone https://github.com/githubnext/monaspace.git
 pushd monaspace/
@@ -95,6 +88,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Install Powerlevel10k theme for Zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+# Install Dracula theme for GNOME Terminal
+sudo nala install dconf-cli -y
+git clone https://github.com/dracula/gnome-terminal
+pushd gnome-terminal/
+./install.sh
+popd
 
 # Reboot system
 echo "Reboot the system to finish the setup in 5 seconds..."
