@@ -57,4 +57,6 @@ cd McMojave-cursors/
 ./install.sh
 cd ..
 
-
+echo "Reboot the system to finish the setup in 5 seconds..."
+sleep 5s
+reboot
