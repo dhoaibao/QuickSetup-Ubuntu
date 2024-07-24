@@ -17,7 +17,7 @@ sudo nala fetch
 sudo nala upgrade -y
 
 # Install essential packages
-sudo nala install -y git zsh nodejs npm neovim ibus-unikey gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak
+sudo nala install -y git zsh wget nodejs npm neovim ibus-unikey gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak
 
 # Add Flathub repository
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -95,6 +95,10 @@ git clone https://github.com/dracula/gnome-terminal
 pushd gnome-terminal/
 ./install.sh
 popd
+
+# Install some software
+wget -i ./download-softwares.txt
+sudo nala install -y *.deb
 
 # Reboot system
 echo "Reboot the system to finish the setup in 5 seconds..."
