@@ -8,7 +8,7 @@ sudo apt-mark hold snapd
 sudo apt-get install -y nala
 sudo nala fetch
 sudo nala upgrade -y
-sudo nala install -y git zsh nodejs npm neovim gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak
+sudo nala install -y git zsh nodejs npm neovim ibus-unikey gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
