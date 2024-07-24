@@ -5,5 +5,3 @@ https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 https://staruml.io/api/download/releases-v6/StarUML_6.2.2_amd64.deb
 
 https://zoom.us/client/6.1.5.871/zoom_amd64.deb
-
-https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
