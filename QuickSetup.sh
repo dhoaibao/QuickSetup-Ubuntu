@@ -12,13 +12,6 @@ sudo nala install -y git zsh nodejs npm neovim ibus-unikey gnome-tweaks gnome-sh
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-
 sudo nala install dconf-cli -y
 git clone https://github.com/dracula/gnome-terminal
 cd gnome-terminal/
@@ -61,6 +54,13 @@ git clone https://github.com/vinceliuice/McMojave-cursors.git
 cd McMojave-cursors/
 ./install.sh
 cd ..
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 echo "Reboot the system to finish the setup in 5 seconds..."
 sleep 5s
