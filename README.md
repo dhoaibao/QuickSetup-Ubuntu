@@ -1,6 +1,6 @@
 # QuickSetup Ubuntu
 ```py
   cd QuickSetup-Ubuntu/
-  sudo chmod 755 ./QuickSetup.sh
+  sudo chmod 777 ./QuickSetup.sh
   sudo ./QuickSetup.sh
 ```
