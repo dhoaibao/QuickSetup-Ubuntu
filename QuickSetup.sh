@@ -97,8 +97,12 @@ pushd gnome-terminal/
 popd
 
 # Install some software
-wget -i ./download-softwares.txt
-sudo nala install -y *.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+wget https://staruml.io/api/download/releases-v6/StarUML_6.2.2_amd64.deb
+wget https://zoom.us/client/6.1.5.871/zoom_amd64.deb
+wget -O vscode_amd64.deb https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+sudo nala install -y ./*.deb
 
 # Reboot system
 echo "Reboot the system to finish the setup in 5 seconds..."
