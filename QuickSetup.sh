@@ -24,14 +24,11 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 # Install Monaspace font
 git clone https://github.com/githubnext/monaspace.git
-pushd monaspace/
-bash util/install_linux.sh
-popd
+bash monaspace/util/install_linux.sh
+rm -rf monaspace/
 
 # Install additional fonts
-pushd fonts/
-sudo mv * /usr/share/fonts/truetype/
-popd
+sudo mv fonts/* /usr/share/fonts/truetype/
 sudo nala install -y ttf-mscorefonts-installer fontconfig
 sudo fc-cache -f -v
 
@@ -45,23 +42,20 @@ gnome-extensions install Vitals@CoreCoding.com
 
 # Install WhiteSur GTK and icon themes
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-pushd WhiteSur-gtk-theme/
-./install.sh -l
-./tweaks.sh -F
+WhiteSur-gtk-theme/install.sh -l
+WhiteSur-gtk-theme/tweaks.sh -F
 sudo flatpak override --filesystem=xdg-config/gtk-4.0
-sudo ./tweaks.sh -g
-popd
+sudo WhiteSur-gtk-theme/tweaks.sh -g
+rm -rf WhiteSur-gtk-theme/
 
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-pushd WhiteSur-icon-theme/
-./install.sh -a
-popd
+WhiteSur-icon-theme/install.sh -a
+rm -rf WhiteSur-icon-theme/
 
 # Install McMojave cursors
 git clone https://github.com/vinceliuice/McMojave-cursors.git
-pushd McMojave-cursors/
-./install.sh
-popd
+McMojave-cursors/install.sh
+rm -rf McMojave-cursors/
 
 # Install Docker Engine
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -92,9 +86,8 @@ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 # Install Dracula theme for GNOME Terminal
 sudo nala install dconf-cli -y
 git clone https://github.com/dracula/gnome-terminal
-pushd gnome-terminal/
-./install.sh
-popd
+gnome-terminal/install.sh
+rm -rf gnome-terminal/
 
 # Install some software
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -102,6 +95,7 @@ wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 wget -O vscode_amd64.deb https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 wget https://staruml.io/api/download/releases-v6/StarUML_6.2.2_amd64.deb
 sudo nala install -y ./*.deb
+rm -rf ./*.deb
 
 # Activate StarUML license
 git clone https://github.com/dhoaibao/activate-StarUML-license.git
