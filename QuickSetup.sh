@@ -100,7 +100,13 @@ popd
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 wget -O vscode_amd64.deb https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+wget https://staruml.io/api/download/releases-v6/StarUML_6.2.2_amd64.deb
 sudo nala install -y ./*.deb
+
+# Activate StarUML license
+git clone https://github.com/dhoaibao/activate-StarUML-license.git
+sudo mv activate-StarUML-license/app.asar /opt/StarUML/resources
+rm -rf activate-StarUML-license/
 
 # Reboot system
 echo "Reboot the system to finish the setup in 5 seconds..."
