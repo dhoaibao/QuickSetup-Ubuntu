@@ -1,4 +1,4 @@
-### Quick setup shell script for my Ubuntu.
+## QuickSetup-Ubuntu
 ```py
   git clone https://github.com/dhoaibao/QuickSetup-Ubuntu.git
   cd QuickSetup-Ubuntu/
