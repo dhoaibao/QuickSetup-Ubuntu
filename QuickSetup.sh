@@ -5,12 +5,6 @@ set -e
 # Update and upgrade the system
 sudo apt-get update && sudo apt-get upgrade -y
 
-# Remove snap and related packages
-sudo rm -rf /var/cache/snapd/
-sudo apt autoremove --purge snapd gnome-software-plugin-snap -y
-sudo rm -rf ~/snap
-sudo apt-mark hold snapd
-
 # Install Nala and update system using Nala
 sudo apt-get install -y nala
 sudo nala fetch
@@ -22,40 +16,10 @@ sudo nala install -y git zsh wget curl nodejs npm neovim ibus-unikey gnome-tweak
 # Add Flathub repository
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# Install Monaspace font
-git clone https://github.com/githubnext/monaspace.git
-bash monaspace/util/install_linux.sh
-rm -rf monaspace/
-
 # Install additional fonts
 sudo mv fonts/* /usr/share/fonts/truetype/
 sudo nala install -y ttf-mscorefonts-installer fontconfig
 sudo fc-cache -f -v
-
-# Install GNOME extensions
-gnome-extensions install user-theme@gnome-shell-extensions.gcampax.github.com
-gnome-extensions install dash-to-dock@micxgx.gmail.com
-gnome-extensions install blur-my-shell@aunetx
-gnome-extensions install clipboard-indicator@tudmotu.com
-gnome-extensions install hidetopbar@mathieu.bidon.ca
-gnome-extensions install Vitals@CoreCoding.com
-
-# Install WhiteSur GTK and icon themes
-git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-WhiteSur-gtk-theme/install.sh -l
-WhiteSur-gtk-theme/tweaks.sh -F
-sudo flatpak override --filesystem=xdg-config/gtk-4.0
-sudo WhiteSur-gtk-theme/tweaks.sh -g
-rm -rf WhiteSur-gtk-theme/
-
-git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-WhiteSur-icon-theme/install.sh -a
-rm -rf WhiteSur-icon-theme/
-
-# Install McMojave cursors
-git clone https://github.com/vinceliuice/McMojave-cursors.git
-McMojave-cursors/install.sh
-rm -rf McMojave-cursors/
 
 # Install Docker Engine
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -73,9 +37,6 @@ echo \
 sudo nala upgrade -y
 sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Install NVM (Node Version Manager)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -89,10 +50,12 @@ git clone https://github.com/dracula/gnome-terminal
 gnome-terminal/install.sh
 rm -rf gnome-terminal/
 
+# Install NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
 # Install some software
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-wget -O vscode_amd64.deb https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 wget https://staruml.io/api/download/releases-v6/StarUML_6.2.2_amd64.deb
 sudo nala install -y ./*.deb
 rm -rf ./*.deb
@@ -102,7 +65,8 @@ git clone https://github.com/dhoaibao/activate-StarUML-license.git
 sudo mv activate-StarUML-license/app.asar /opt/StarUML/resources
 rm -rf activate-StarUML-license/
 
-# Reboot system
-echo "Reboot the system to finish the setup in 5 seconds..."
-sleep 5s
-sudo reboot
+# Remove snap and related packages
+sudo rm -rf /var/cache/snapd/
+sudo apt autoremove --purge snapd gnome-software-plugin-snap -y
+sudo rm -rf ~/snap
+sudo apt-mark hold snapd
