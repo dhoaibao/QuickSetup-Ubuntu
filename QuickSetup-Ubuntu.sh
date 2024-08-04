@@ -11,7 +11,7 @@ sudo nala fetch
 sudo nala upgrade -y
 
 # Install essential packages
-sudo nala install -y git zsh neofetch vlc gh wget curl nodejs npm neovim ibus-unikey gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak
+sudo nala install -y git zsh neofetch vlc gh wget curl nodejs npm neovim ibus-unikey gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak openjdk-21-jdk
 
 # Add Flathub repository
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo

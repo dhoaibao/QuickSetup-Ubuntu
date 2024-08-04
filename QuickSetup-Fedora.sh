@@ -1,0 +1,63 @@
+#!/bin/bash
+
+set -e
+
+# Update and upgrade the system
+sudo dnf upgrade -y
+
+# Install essential packages
+sudo dnf install -y git zsh neofetch vlc gh wget curl nodejs npm neovim dconf-editor java-21
+
+# Install additional fonts
+sudo mv fonts/* /usr/share/fonts/
+sudo dnf install mscore-fonts-all -y
+sudo fc-cache -f -v
+
+# Install Docker Engine
+sudo dnf remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl start docker
+sudo docker run hello-world
+
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install Powerlevel10k theme for Zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+# Install Dracula theme for GNOME Terminal
+sudo nala install dconf-cli -y
+git clone https://github.com/dracula/gnome-terminal
+gnome-terminal/install.sh
+rm -rf gnome-terminal/
+
+# Install NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Install some software
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+wget https://staruml.io/api/download/releases-v6/StarUML-6.2.2.x86_64.rpm
+sudo dnf install -y ./*.rpm
+rm -rf ./*.rpm
+
+# Activate StarUML license
+git clone https://github.com/dhoaibao/activate-StarUML-license.git
+sudo mv activate-StarUML-license/app.asar /opt/StarUML/resources
+rm -rf activate-StarUML-license/
+
+# Install ibus-bamboo
+sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:lamlng/Fedora_40/home:lamlng.repo
+sudo dnf install ibus-bamboo
