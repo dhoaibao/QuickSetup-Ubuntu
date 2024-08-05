@@ -42,10 +42,6 @@ sudo docker run hello-world
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Install Powerlevel10k theme for Zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-
 # Install Dracula theme for GNOME Terminal
 sudo nala install dconf-cli -y
 git clone https://github.com/dracula/gnome-terminal
@@ -54,6 +50,21 @@ rm -rf gnome-terminal/
 
 # Install NVM (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Install Bun
+curl -fsSL https://bun.sh/install | bash
+exec /usr/bin/zsh
+
+# Install Node via NVM
+nvm install --lts
+nvm install node
+
+# Install Node via NVM
+nvm install --lts
+nvm install node
+
+# Install pnpm and yarn
+npm i -g pnpm yarn
 
 # Install some software
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -74,6 +85,10 @@ sudo apt-get install ibus ibus-bamboo --install-recommends
 ibus restart
 # Đặt ibus-bamboo làm bộ gõ mặc định
 env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']" && gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
+
+# Install Powerlevel10k theme for Zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 # Remove snap and related packages
 sudo rm -rf /var/cache/snapd/
