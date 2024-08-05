@@ -6,7 +6,7 @@ set -e
 sudo dnf upgrade -y
 
 # Install essential packages
-sudo dnf install -y git zsh neofetch vlc gh wget curl nodejs npm neovim dconf-editor java-21
+sudo dnf install -y git zsh neofetch vlc gh wget curl nodejs npm neovim dconf-editor java-21 ibus-unikey
 
 # Install additional fonts
 sudo cp -a /run/media/dhbao/Windows/Windows/Fonts ./fonts/
