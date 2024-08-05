@@ -1,4 +1,4 @@
-## QuickSetup-Ubuntu
+## QuickSetup Linux
 ```py
   git clone https://github.com/dhoaibao/QuickSetup-Linux.git
   cd QuickSetup-Linux/
