@@ -59,10 +59,6 @@ exec /usr/bin/zsh
 nvm install --lts
 nvm install node
 
-# Install Node via NVM
-nvm install --lts
-nvm install node
-
 # Install pnpm and yarn
 npm i -g pnpm yarn
 
