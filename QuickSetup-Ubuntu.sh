@@ -11,13 +11,12 @@ sudo nala fetch
 sudo nala upgrade -y
 
 # Install essential packages
-sudo nala install -y git zsh neofetch vlc gh wget curl nodejs npm neovim gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak openjdk-21-jdk conf-editor ibus-unikey
+sudo nala install -y git zsh neofetch vlc gh wget curl nodejs npm neovim gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak openjdk-21-jdk dconf-editor ibus-unikey
 
 # Add Flathub repository
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # Install additional fonts
-sudo cp -a /run/media/dhbao/Windows/Windows/Fonts ./fonts/
 sudo mv fonts/* /usr/share/fonts/truetype/
 sudo nala install -y ttf-mscorefonts-installer fontconfig
 sudo fc-cache -f -v
@@ -37,10 +36,6 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo nala upgrade -y
 sudo nala install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo docker run hello-world
-
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install Dracula theme for GNOME Terminal
 sudo nala install dconf-cli -y
@@ -53,18 +48,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # Install Bun
 curl -fsSL https://bun.sh/install | bash
-exec /usr/bin/zsh
-
-# Install Node via NVM
-nvm install --lts
-nvm install node
-
-# Install pnpm and yarn
-npm i -g pnpm yarn
 
 # Install some software
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 wget https://staruml.io/api/download/releases-v6/StarUML_6.2.2_amd64.deb
 sudo nala install -y ./*.deb
 rm -rf ./*.deb
@@ -86,8 +72,5 @@ env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['Bamb
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
-# Remove snap and related packages
-sudo rm -rf /var/cache/snapd/
-sudo apt autoremove --purge snapd gnome-software-plugin-snap -y
-sudo rm -rf ~/snap
-sudo apt-mark hold snapd
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
