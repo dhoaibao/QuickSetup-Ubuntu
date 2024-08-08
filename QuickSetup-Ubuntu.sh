@@ -68,6 +68,14 @@ ibus restart
 # Đặt ibus-bamboo làm bộ gõ mặc định
 env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']" && gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
 
+# Install WhiteSur icon themes
+git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
+WhiteSur-icon-theme/install.sh -a
+rm -rf WhiteSur-icon-theme/
+
+# Install McMojave and Bibata cursors
+sudo mv ./cursors/* /usr/share/icons
+
 # Install Powerlevel10k theme for Zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc

@@ -56,6 +56,14 @@ rm -rf activate-StarUML-license/
 sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:lamlng/Fedora_40/home:lamlng.repo
 sudo dnf install ibus-bamboo
 
+# Install WhiteSur icon themes
+git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
+WhiteSur-icon-theme/install.sh -a
+rm -rf WhiteSur-icon-theme/
+
+# Install McMojave and Bibata cursors
+sudo mv ./cursors/* /usr/share/icons
+
 # Install Powerlevel10k theme for Zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
