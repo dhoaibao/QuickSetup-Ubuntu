@@ -5,6 +5,9 @@ set -e
 # Update and upgrade the system
 sudo apt-get update && sudo apt-get upgrade -y
 
+#PPA Git
+add-apt-repository ppa:git-core/ppa
+
 # Install Nala and update system using Nala
 sudo apt-get install -y nala
 sudo nala fetch
