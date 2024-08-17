@@ -19,6 +19,7 @@ sudo apt-get update && sudo apt-get install cloudflare-warp
 
 warp-cli registration license M9c1dp82-xR30TW25-d2T1S06U
 warp-cli connect
+warp-cli mode warp+doh
 
 # Install Nala and update system using Nala
 sudo apt-get install -y nala
