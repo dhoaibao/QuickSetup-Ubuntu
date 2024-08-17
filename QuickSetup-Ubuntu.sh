@@ -14,7 +14,7 @@ sudo nala fetch
 sudo nala upgrade -y
 
 # Install essential packages
-sudo nala install -y git libreoffice zsh neofetch vlc gh wget curl nodejs npm neovim gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak openjdk-21-jdk dconf-editor ibus-unikey filezilla
+sudo nala install -y libreoffice zsh neofetch gh wget curl nodejs npm neovim gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak openjdk-21-jdk dconf-editor ibus-unikey filezilla
 
 # Add Flathub repository
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -45,12 +45,6 @@ sudo nala install dconf-cli -y
 git clone https://github.com/dracula/gnome-terminal
 gnome-terminal/install.sh
 rm -rf gnome-terminal/
-
-# Install NVM (Node Version Manager)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-# Install Bun
-curl -fsSL https://bun.sh/install | bash
 
 # Install some software
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -85,3 +79,9 @@ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Install Bun
+curl -fsSL https://bun.sh/install | bash

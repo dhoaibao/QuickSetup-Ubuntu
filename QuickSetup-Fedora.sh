@@ -6,7 +6,7 @@ set -e
 sudo dnf upgrade -y
 
 # Install essential packages
-sudo dnf install -y git zsh neofetch vlc gh wget curl nodejs npm neovim dconf-editor java-21 ibus-unikey filezilla
+sudo dnf install -y zsh neofetch gh wget curl nodejs npm neovim dconf-editor java-21 ibus-unikey filezilla
 
 # Install additional fonts
 sudo mv fonts/* /usr/share/fonts/
@@ -35,12 +35,6 @@ git clone https://github.com/dracula/gnome-terminal
 gnome-terminal/install.sh
 rm -rf gnome-terminal/
 
-# Install NVM (Node Version Manager)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-# Install Bun
-curl -fsSL https://bun.sh/install | bash
-
 # Install some software
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 wget https://staruml.io/api/download/releases-v6/StarUML-6.2.2.x86_64.rpm
@@ -51,10 +45,6 @@ rm -rf ./*.rpm
 git clone https://github.com/dhoaibao/activate-StarUML-license.git
 sudo mv activate-StarUML-license/app.asar /opt/StarUML/resources
 rm -rf activate-StarUML-license/
-
-# Install ibus-bamboo
-sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:lamlng/Fedora_40/home:lamlng.repo
-sudo dnf install ibus-bamboo
 
 # Install WhiteSur icon themes
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
@@ -70,3 +60,9 @@ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Install Bun
+curl -fsSL https://bun.sh/install | bash
