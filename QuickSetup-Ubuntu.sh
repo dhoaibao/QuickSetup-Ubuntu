@@ -8,6 +8,17 @@ sudo apt-get update && sudo apt-get upgrade -y
 #PPA Git
 sudo add-apt-repository ppa:git-core/ppa
 
+# Install Nala and update system using Nala
+sudo apt-get install -y nala
+sudo nala fetch
+sudo nala upgrade -y
+
+# Install essential packages
+sudo nala install -y libreoffice zsh neofetch gh wget curl nodejs npm neovim gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak openjdk-21-jdk dconf-editor ibus-unikey filezilla
+
+# Add Flathub repository
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 # Add cloudflare gpg key
 curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
 
@@ -20,17 +31,6 @@ sudo apt-get update && sudo apt-get install cloudflare-warp
 warp-cli registration license M9c1dp82-xR30TW25-d2T1S06U
 warp-cli connect
 warp-cli mode warp+doh
-
-# Install Nala and update system using Nala
-sudo apt-get install -y nala
-sudo nala fetch
-sudo nala upgrade -y
-
-# Install essential packages
-sudo nala install -y libreoffice zsh neofetch gh wget curl nodejs npm neovim gnome-tweaks gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak openjdk-21-jdk dconf-editor ibus-unikey filezilla
-
-# Add Flathub repository
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # Install additional fonts
 sudo mv fonts/* /usr/share/fonts/truetype/
@@ -86,12 +86,12 @@ rm -rf WhiteSur-icon-theme/
 # Install McMojave and Bibata cursors
 sudo mv ./cursors/* /usr/share/icons
 
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Install Powerlevel10k theme for Zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install NVM (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
