@@ -3,7 +3,6 @@
 set -e
 
 # Refresh Snap
-sudo killall snap-store
 sudo snap refresh
 
 # Ubuntu Pro
@@ -34,10 +33,6 @@ echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] ht
 
 # Install Cloundflare
 sudo nala upgrade && sudo nala install -y cloudflare-warp
-
-warp-cli registration license M9c1dp82-xR30TW25-d2T1S06U
-warp-cli connect
-warp-cli mode warp+doh
 
 # Install additional fonts
 sudo mv fonts/* /usr/share/fonts/truetype/
@@ -97,6 +92,11 @@ rm -rf WhiteSur-icon-theme/
 
 # Install McMojave and Bibata cursors
 sudo mv ./cursors/* /usr/share/icons
+
+#Cloundflare connect
+warp-cli registration license M9c1dp82-xR30TW25-d2T1S06U
+warp-cli connect
+warp-cli mode warp+doh
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
