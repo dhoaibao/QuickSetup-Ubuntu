@@ -25,8 +25,8 @@ curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmo
 # Add this repo to your apt repositories
 echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
 
-# Install
-sudo apt-get update && sudo apt-get install cloudflare-warp
+# Install Cloundflare
+sudo nala upgrade && sudo nala install -y cloudflare-warp
 
 warp-cli registration license M9c1dp82-xR30TW25-d2T1S06U
 warp-cli connect
@@ -40,8 +40,8 @@ sudo fc-cache -f -v
 # Install Docker Engine
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 # Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl -y
+sudo nala upgrade
+sudo nala install ca-certificates curl -y
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -59,6 +59,11 @@ git clone https://github.com/dracula/gnome-terminal
 gnome-terminal/install.sh
 rm -rf gnome-terminal/
 
+# Install Spotify
+curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo nala upgrade && sudo nala install spotify-client -y
+
 # Install some software
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://staruml.io/api/download/releases-v6/StarUML_6.2.2_amd64.deb
@@ -72,8 +77,8 @@ rm -rf activate-StarUML-license/
 
 # Install ibus-bamboo
 sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
-sudo apt-get update
-sudo apt-get install ibus ibus-bamboo --install-recommends
+sudo nala upgrade
+sudo nala install -y ibus ibus-bamboo --install-recommends
 ibus restart
 # Đặt ibus-bamboo làm bộ gõ mặc định
 env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']" && gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
