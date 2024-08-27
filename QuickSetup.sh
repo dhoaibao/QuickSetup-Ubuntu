@@ -85,28 +85,9 @@ ibus restart
 # Đặt ibus-bamboo làm bộ gõ mặc định
 env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']" && gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
 
-# Install WhiteSur icon themes
-git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-WhiteSur-icon-theme/install.sh -a
-rm -rf WhiteSur-icon-theme/
-
-# Install McMojave and Bibata cursors
-sudo mv ./cursors/* /usr/share/icons
-
-#Cloundflare connect
-warp-cli registration license M9c1dp82-xR30TW25-d2T1S06U
-warp-cli connect
-warp-cli mode warp+doh
-
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Install Powerlevel10k theme for Zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
-# Install NVM (Node Version Manager)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-# Install Bun
-curl -fsSL https://bun.sh/install | bash
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
