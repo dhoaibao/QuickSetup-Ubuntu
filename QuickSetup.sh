@@ -85,6 +85,9 @@ ibus restart
 # Đặt ibus-bamboo làm bộ gõ mặc định
 env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']" && gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
 
+# Set local time
+timedatectl set-local-rtc 1 --adjust-system-clock
+
 # Install Powerlevel10k theme for Zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
