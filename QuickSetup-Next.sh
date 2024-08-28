@@ -11,7 +11,7 @@ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 WhiteSur-gtk-theme/install.sh -l
 WhiteSur-gtk-theme/tweaks.sh -F
 sudo flatpak override --filesystem=xdg-config/gtk-4.0
-sudo WhiteSur-gtk-theme/tweaks.sh -g
+sudo WhiteSur-gtk-theme/tweaks.sh -g -b "ubuntu-2.png"
 rm -rf WhiteSur-gtk-theme/
 
 # Install NVM (Node Version Manager)
