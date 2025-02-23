@@ -5,9 +5,6 @@ set -e
 # Refresh Snap
 sudo snap refresh
 
-# Ubuntu Pro
-sudo pro attach C128qd51avaELeeHj855FWeqKhakGC
-
 # Update and upgrade the system
 sudo apt-get update && sudo apt-get upgrade -y
 
