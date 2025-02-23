@@ -22,5 +22,4 @@ curl -fsSL https://bun.sh/install | bash
 warp-cli registration new
 warp-cli connect
 warp-cli mode warp+doh
-warp-cli registration license M9c1dp82-xR30TW25-d2T1S06U
 curl https://www.cloudflare.com/cdn-cgi/trace/ 
