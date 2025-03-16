@@ -4,4 +4,3 @@
   cd QuickSetup-Ubuntu/
   sudo chmod +x ./*.sh
 ```
-![image](./screen.png)
