@@ -1,6 +1,6 @@
-## QuickSetup Ubuntu
+## QuickSetup Linux
 ```py
-  git clone https://github.com/dhoaibao/QuickSetup-Ubuntu.git
-  cd QuickSetup-Ubuntu/
+  git clone https://github.com/dhoaibao/QuickSetup-Linux.git
+  cd QuickSetup-Linux/
   sudo chmod +x ./*.sh
 ```
